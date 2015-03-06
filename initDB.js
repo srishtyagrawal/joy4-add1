@@ -30,11 +30,11 @@ var projects_json2 = require('./globaldata.json');
 //console.log("JSON LOADED");
 
 // Step 2: Remove all existing documents
-/*
+
 models.Project2
   .find()
   .remove()
-  .exec(onceClear2); */
+  .exec(onceClear2); 
   
 models.Project
   .find()
@@ -69,13 +69,13 @@ function onceClear(err) {
         //console.log('DONE');
         // The script won't terminate until the 
         // connection to the database is closed
-        mongoose.connection.close()
+        //mongoose.connection.close()
       }
     });
   }
 }
 
-metadata= 
+/*metadata= 
 {
 	
 	'total_cheat' : 10,
@@ -94,8 +94,8 @@ models.Project2
 		console.log(err);
 	}});
 
-
-/*function onceClear2(err) {
+*/
+function onceClear2(err) {
 	console.log("loading 2");
   //console.log("MODEL LOADED");
   if(err) console.log(err);
@@ -125,4 +125,3 @@ models.Project2
     });
   }
 }
-*/

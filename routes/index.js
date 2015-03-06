@@ -1,5 +1,5 @@
 // RECEIVING USERNAME & PASSWORD DATA
-
+var global_datajson = require('../globaldata.json');
 var models = require('../models');
 
 
@@ -7,19 +7,20 @@ var models = require('../models');
 exports.view = function(req, res){
 	models.Project
 		.find()
+		.sort({"id":-1})
 		.exec(
 		function before_renderProjects(err, projDB){
 			models.Project2
 			.find()
 			.exec(
 			function render2(err, cheats){
-				console.log('here it is');
-				//console.log(cheats[1].total_cheat);
-				//console.log(cheats[1].cheat_left);
-				//console.log(cheats[1].cheat_had);
-				console.log(cheats);
-				res.render('index', {"meal" : projDB, "total_cheat" : cheats.total_cheat,
-				"cheat_left" : cheats.cheat_left, "cheat_had" : cheats.cheat_had});
+				/*console.log(cheats);
+				last = cheats.length-1;
+				res.render('index', {"meal" : projDB, "total_cheat" : cheats[last].total_cheat,
+				"cheat_left" : cheats[last].cheat_left, "cheat_had" : cheats[last].cheat_had});*/
+				res.render('index', {"meal" : projDB, "total_cheat" : global_datajson[0].total_cheat,
+				"cheat_left" : global_datajson[0].cheat_left, "cheat_had" : global_datajson[0].cheat_had});
+
 			});
 	});
 }

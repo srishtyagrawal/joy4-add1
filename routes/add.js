@@ -36,9 +36,17 @@ newMeal=
 			function render2(er,cheats){
 				if (req.query.health == "redish")
 				{
-					cheats.cheat_had = 10;
-					cheats.cheat_had = cheats.cheat_had+1;
-					cheats.cheat_left = cheats.cheat_left-1;
+					/*var update_cheat=
+					{
+						'total_cheat': cheats[0].total_cheat,
+						'cheat_had': cheats[0].cheat_had+1,
+						'cheat_left': cheats[0].cheat_left-1
+					}
+					var new_cheat = new models.Project2(update_cheat); 
+					new_cheat.save();
+					//models.Project2.update({total_cheat:10},{$set: { cheat_left:8}});*/
+					global_datajson[0].cheat_had = global_datajson[0].cheat_had+1;
+					global_datajson[0].cheat_left = global_datajson[0].cheat_left-1
 				}
 			})
 		});

@@ -1,5 +1,3 @@
-// RECEIVING USERNAME & PASSWORD DATA
-// RECEIVING USERNAME & PASSWORD DATA
 var data = require('../public/js/data.json');
 var projects = require('../projects.json');
 var global_datajson = require('../globaldata.json');
