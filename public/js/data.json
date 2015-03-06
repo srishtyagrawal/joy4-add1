@@ -1,0 +1,98 @@
+{
+		"meal":[ 
+		{
+			"name":"Burger and fries",
+			"time": "8:00 AM",
+			"date":"02-13-15",
+			"image": "junk1.png",
+			"mood" : "happy-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "Had burgers with Jane today. Next time don't get the onion rings.",
+			"location" : "Burger Lounge",
+			"id": 6,
+			"color":"redish",
+			"type_img":"cheat.svg"
+		},
+		{
+			"name":"Spaghetti and meatballs",
+			"time": "7:00 PM",
+			"date":"02-13-15",
+			"image": "junk3.png",
+			"mood" : "sad-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "It was not that great. The only reason why I got is because I was in a rush",
+			"location" : "Olive Garden",
+			"id": 5,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		},
+		{
+			"name": "Chinese food",
+			"time": "1:30 PM",
+			"date":"02-14-15",
+			"image": "junk5.png",
+			"mood" : "happy-color.svg",
+			"type" : "Healthy Meal",
+			"desc" : "I felt like eating better. That led me to eating healthy today. It was not too bad to be honest",
+			"location" : "Home",
+			"id": 4,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		},
+        {
+			"name": "Pesto pasta",
+			"time": "8:30 PM",
+			"date":"02-14-15",
+			"image": "junk4.png",
+			"mood" : "happy-color.svg",
+			"type" : "Healthy Meal",
+			"desc" : "Trader Joes sells cheaper pesto sauce. I think next time I'll add cherry tomatoes.",
+			"location" : "Home",
+			"id": 3,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		},
+            {
+			"name": "Naan and curry",
+			"time": "12:30 PM",
+			"date":"02-15-15",
+			"image": "junk7.png",
+			"mood" : "sad-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "I felt like eating better. That led me to eating healthy today. It was not too bad to be honest",
+			"location" : "Himalayan Cuisine",
+			"id": 2,
+			"color":"redish",
+			"type_img":"cheat.svg"
+		},
+            {
+			"name": "Ice cream",
+			"time": "3:30 PM",
+			"date":"02-15-15",
+			"image": "junk9.jpg",
+			"mood" : "happy-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "Allison came to visit me in San Diego today so we went to get gelato at the local gelateria.",
+			"location" : "Gelateria de Medici",
+			"id": 1,
+			"color":"redish",
+			"type_img":"cheat.svg"
+		},
+            {
+			"name": "Pork and egg",
+			"time": "8:00 AM",
+			"date":"02-16-15",
+			"image": "junk10.jpg",
+			"mood" : "happy-color.svg",
+			"type" : "Healthy Meal",
+			"desc" : "Today was a good day because mom cooked.",
+			"location" : "The Parentals",
+			"id": 0,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		}
+],
+	"total_cheat" : 10,
+	"cheat_left"  : 3,
+	"cheat_had"   : 7
+}

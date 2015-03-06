@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--NECESSARY META DATA -->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<!-- WEBSITE TITLE -->
+ 	<title>Edit Cheat meal</title>
+ 	<!--LINKING TO BOOTSTRAP-->
+ 	<link href="css/bootstrap.min.css" rel="stylesheet">
+ 	<!--LINKING TO CSS-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/styles4.css" rel="stylesheet">
+    <link href="css/homepage.css" rel="stylesheet">
+ 	<!--LINKING TO GOOGLE WEB FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+ 	<!--NOT QUITE SURE WHAT THIS IS YET-->
+ 	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+
+
+<body>	
+<div class="container">
+
+    <p class="jumbo">How many <b style="color:#666">cheat meals</b> do you plan to eat in a month?</p>
+      <br><br>
+          
+    <!--enter a cheat meal #-->
+    <div class="input-group" style="width:70%;text-align:center;margin:0 auto;">
+    <input type="hidden" date="time" class="form-control" name="mood" id="mood" >
+
+    <select class="form-control input-lg" id= "num_cheat" class="form-control input-lg">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+            </select>
+    <span class="input-group-btn"><a href="#" role="button" style="color:#fff; text-decoration:none"><button class="btn btn-lg btn-primary" type="submit" onclick="myFunction()" id="name" >GO!</a></button></span>
+    </div><!--end input-group-->
+</div><!--end container-->
+
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color:#fff; border:none">
+  <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary btn" href="/home" role="button" style="background-color:#333; border:1; border-color: #878787"><img class="sorters" src="./img/home.svg"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="./img/upload.svg"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="./img/report.svg"/></a>
+  </div>
+</nav> 
+    
+<!--=========================================================-->
+<!--                         SCRIPT                          -->
+<!--=========================================================-->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+<!-- script references -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script>
+function myFunction() {
+	console.log("shows?");
+	console.log(x);
+    var x = document.getElementById("num_cheat").value;
+	//var y = parseInt(x);
+	window.location="/edit_add/"+x;
+	
+	for (i = 0 ; i < x.length ; i++) 
+	{ 
+		if ((x.charAt(i) < '0') || (x.charAt(i) > '9')) 
+		{
+			$('#alert1').show();
+			$('#alert2').hide();
+			break;
+		}
+		else
+		{
+			$('#alert2').show();
+			$('#alert1').hide();	
+	}}
+	}
+</script>
+
+<script>
+    $('#alert1').hide();
+    $('#alert2').hide();
+</script>
+
+<script>
+    function hide(){
+        $('#alert1').hide();
+        $('#alert2').hide();
+    }
+</script>    
+</body>
+</html>

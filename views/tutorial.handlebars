@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--NECESSARY META DATA -->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<!-- WEBSITE TITLE -->
+ 	<title>Appetit: Tutorial</title>
+ 	<!--LINKING TO BOOTSTRAP-->
+ 	<link href="css/bootstrap.min.css" rel="stylesheet">
+ 	<!--LINKING TO CSS-->
+ 	<link href="css/tutorial.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+  <!--CUSTOM TEMPLATE -->
+  <link href="css/tutorial.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+<!--==================================================================-->
+<!--                     SECTION A: TOP INFO BAR                      -->
+<!--==================================================================-->
+ 
+<section>
+  <header class="header black-bg">
+    <a href="#" class="logo"><b>APPETIT: TUTORIAL </b></a>
+  </header>
+</section> <!-- END OF SECTION A -->
+
+<!--==================================================================-->
+<!--                   SECTION B: SLIDESHOR TUTORIAL                  -->
+<!--==================================================================-->
+<br><br><br><br> <!--Adding breaks so context is not hidden by info bar-->
+
+<!-- Carousell class. Bootstrap component for image slideshows -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicating how many pictures will be avaliable-->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!--Content for all slides -->
+  <div class="carousel-inner" role="listbox">
+
+    <!-- Content in slide 1 -->
+    <div class="item active">
+      <img src="img/slide1.png" alt="Slide1">
+    </div>
+
+    <!-- Content in slide 2 -->
+    <div class="item">
+      <img src="img/slide1.png" alt="Slide2">
+    </div>
+
+    <!-- Content in slide 3 -->
+    <div class="item">
+      <img src="img/slide1.png" alt="Slide3">
+    </div>
+
+    <!-- Content in slide 4 -->
+    <div class="item">
+      <img src="img/slide1.png" alt="Slide4">
+    </div>
+
+  </div>
+
+  <!-- Left control -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <!-- Right control -->
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <br> 
+</div> <!-- END OF SECTION B -->
+
+<!--==================================================================-->
+<!--                        SECTION C: EXIT PANEL                     -->
+<!--==================================================================-->
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><b>Don't need the tutorial?</b></h3>
+  </div>
+  <div class="panel-body">
+    Just click on the buttons below to go straight to the app.
+    You can find the option to see the tutorial again in the 
+    settings option of the home page :) 
+    <br><br>
+    <a class="btn btn-danger" href="#">Cancel tutorial</a>
+  </div>
+</div> <!-- END OF SECTION C -->
+
+</body> <!--END OF FILE -->

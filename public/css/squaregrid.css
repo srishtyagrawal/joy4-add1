@@ -1,0 +1,14 @@
+.gridbox {
+    height: auto !important; /*min-height hack*/
+}
+
+.square {
+    float:left;
+    position: relative;
+    background-position:center center;
+    margin: 1.6%;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+    }
+
+

@@ -1,0 +1,93 @@
+[
+		{
+			"name":"Pesto pasta",
+			"time": "8:00 AM",
+			"date":"02-15-15",
+			"image": "junk4.png",
+			"mood" : "happy-color.svg",
+			"type" : "Healthy Meal",
+			"desc" : "Picked up some pesto sauce from Trader Joes. It was delicious! Next time I should add some cherry tomatoes.",
+			"location" : "Home",
+			"id": 6,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		},
+        {
+			"name":"Naan and curry",
+			"time": "8:00 AM",
+			"date":"02-15-15",
+			"image": "junk7.png",
+			"mood" : "sad-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "It was sooo good.. but so fattening. Definitely feel like I'm getting a food coma.",
+			"location" : "Himalayan Cuisine",
+			"id": 5,
+			"color":"redish",
+			"type_img":"cheat.svg"
+		},
+        {
+			"name":"Gelato",
+			"time": "8:00 AM",
+			"date":"02-15-15",
+			"image": "junk9.jpg",
+			"mood" : "happy-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "Allison came to visit today so we went to grab gelato at the local gelateria. Introduced her to my favorite vanilla/strawberry combo. Just can't believe they upped the price from $3.50 to $3.75!!",
+			"lcation" : "Gelateria Frizzante",
+			"id": 4,
+			"color":"redish",
+			"type_img":"cheat.svg"
+		},    
+        {
+			"name":"Pork and egg",
+			"time": "8:00 AM",
+			"date":"02-15-15",
+			"image": "junk10.jpg",
+			"mood" : "happy-color.svg",
+			"type" : "Healthy Meal",
+			"desc" : "Feeling like a kid again 'cause mom cooked :)",
+			"location" : "The Parentals",
+			"id": 3,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		},
+        {
+			"name":"Burger and fries",
+			"time": "8:00 AM",
+			"date":"02-15-15",
+			"image": "junk1.png",
+			"mood" : "happy-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "Had burgers with Jane today. Next time don't get the onion rings.",
+			"location" : "Burger Lounge",
+			"id": 2,
+			"color":"redish",
+			"type_img":"cheat.svg"
+		},
+		{
+			"name":"Spaghetti and meatballs",
+			"time": "7:00 PM",
+			"date":"02-15-15",
+			"image": "junk3.png",
+			"mood" : "sad-color.svg",
+			"type" : "Cheat Meal",
+			"desc" : "It was not that great. The only reason why I got is because I was in a rush",
+			"location" : "Olive Garden",
+			"id": 1,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		},
+		{
+			"name": "Chinese food",
+			"time": "1:30 PM",
+			"date":"02-15-15",
+			"image": "junk5.png",
+			"mood" : "happy-color.svg",
+			"type" : "Healthy Meal",
+			"desc" : "I felt like eating better. That led me to eating healthy today. It was not too bad to be honest",
+			"location" : "Home",
+			"id": 0,
+			"color":"greenish",
+			"type_img":"healthy.svg"
+		}
+]

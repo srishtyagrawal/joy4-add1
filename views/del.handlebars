@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--NECESSARY META DATA -->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<!-- WEBSITE TITLE -->
+ 	<title>Appetit: Homepage</title>
+ 	<!--LINKING TO BOOTSTRAP-->
+
+ 	<link href="css/bootstrap.min.css" rel="stylesheet">
+ 	<!--LINKING TO CSS-->
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/squaregrid.css" rel="stylesheet">
+    <!-- External CSS for gritter/pop notification-->
+    <link rel="stylesheet" type="text/css" href="js/gritter/css/jquery.gritter.css" />
+ 	<!--LINKING TO GOOGLE WEB FONTS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+ 	<!--NOT QUITE SURE WHAT THIS IS YET-->
+ 	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+
+
+<body>
+
+<!--==================================================================-->
+<!--                SECTION A: TOP NAV / HEADER                       -->
+<!--==================================================================-->
+<header  class="header black-bg">
+    <!--logo start-->
+    <a href="" class="logo"><img class="sorters" src="../img/logo.svg"/></a>
+    <!--logo end-->
+    
+    <div class="nav notify-row" id="top_menu">       
+    </div>
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="/">Log Out</a></li>
+            </ul>
+        </div>
+</header>
+<!--Section A end-->
+    
+
+<!--==================================================================-->
+<!--                SECTION B: REMAINING CHEAT MEALS                  -->
+<!--==================================================================-->
+
+
+<!--cheat meal index-->
+<br><br><br><br>
+ <table style="width:100%">
+<tr>
+
+    <td><br>
+        <center><div id="TestDonutMeal" style="width: 125px; height: 125px"></div>
+        <br><h12>{{cheat_left}} / {{total_cheat}} Cheat<br>Meals Remaining</h12><br>
+        <a href="/edit" style="text-decoration:none; color:#30c9e8; font-weight:bold; letter-spacing:1px">EDIT</a></center>
+    </td>
+    <!--<td><br>
+        <center><div id="TestDonutMealRED" style="width: 125px; height: 125px"></div>
+        <br><h12>{{cheat_left}} / {{total_cheat}} Cheat<br>Meals Remaining</h12><br>
+        <a href="/edit" style="text-decoration:none; color:#30c9e8; font-weight:bold; letter-spacing:1px">EDIT</a></center>
+    </td>-->
+    <td>
+        <center><div id="TestDonut" style="width: 125px; height: 125px"></div>
+        <br><h12 id="lul"></h12></center>
+    </td>
+</tr>
+</table><br>
+
+<!--end cheat meal index--><!--END OF SECTION B -->
+
+<!--==================================================================-->
+<!--                    SECTION C : MEAL LOG                          -->
+<!--==================================================================-->
+
+
+<!--title-->
+<div class="meal-log">
+    <center><h11>Meal log</11>  <i class="fa fa-long-arrow-down"></i></center>
+</div>
+
+
+<!--==================================================================-->
+<!--                       SECTION D: PHOTO GRID                      -->
+<!--==================================================================-->
+<br>
+<div class='row' style="padding-bottom: 70px; margin:0">
+    {{#each meal}}
+    <div class='col-xs-4' style="padding:1.5px">
+       <div class="square">
+           <a href="viewingMeal/{{id}}" class="thumbnail {{color}}" style="margin:0">
+            <img src="../img/{{image}}" 
+             alt="Meal Thumbnail Placeholder">
+           </a>
+       </div> 
+    </div>
+{{/each}}
+</div>
+<!-- END OF SECTION D -->
+
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color:#fff; border:none">
+  <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary btn" href="/home" role="button" style="background-color:#333; border:1; border-color: #878787"><img class="sorters" src="./img/home.svg"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="./img/upload.svg"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="./img/report.svg"/></a>
+  </div>
+</nav> 
+    
+<!--=========================================================-->
+<!--                         SCRIPT                          -->
+<!--=========================================================-->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+
+<script>
+  function myfunc(){
+    console.log("HERE");
+  }
+</script> 
+
+<script>
+<!-- Original:  Justin Smith -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://www.javascriptsource.com -->
+
+<!-- Begin
+  var today = new Date();
+  var now = today.getDate();
+  var year = today.getFullYear();
+  var month = today.getMonth();
+
+var monarr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+// check for leap year
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monarr[1] = "29";
+
+// display day left
+var text = "There are " + (monarr[month]-now) + " days left in this Month.";
+var remain = (monarr[month])
+//  End -->
+document.getElementById("lul").innerHTML=now + " / " +(monarr[month])+" Days"+"<br>" + "Completed";
+</script>
+
+    
+<!--script for donut chart-->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<!--3/10 cheat meals-->
+<script>
+$(function () {
+	var testData = [{name:{{cheat_left}},y:{{cheat_left}}/{{total_cheat}}*100},{name:"aa",y:100-{{cheat_left}}/{{total_cheat}}*100,color:"#eee"}];
+
+	var donutChartOptions = {
+		chart: {
+			backgroundColor: '#fff' ,
+			margin: [0,0,0,0],
+			renderTo: 'TestDonutMeal',
+			spacing: [0,0,0,0],
+			type: 'pie'
+		},
+        colors: ['#FFC101'],
+		credits: {
+			enabled: false
+		},
+        exporting: {
+			enabled: false
+		}, 
+		legend: {
+			enabled: false
+		},
+		plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    color: 'red'
+                }
+            },
+			pie: {
+                allowPointSelect: false,
+				dataLabels: {
+                    connectorWidth: 0,
+					enabled: false
+				},
+				shadow: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                },
+			},
+		},
+		tooltip: {
+			enabled: false
+		},
+		series: [{
+			data: testData,
+			name: "",
+			size: 125,
+			innerSize: 118,
+			pointPadding: 0,
+			groupPadding: 0
+		}],
+		template: 'donut',
+        title: {
+            align: 'center',
+            style: {
+                color: '#FFC101',
+                fontFamily: 'Arial, Helvetica, sans',
+                fontSize: '22px',
+                fontWeight: 'bold',
+                
+            },
+            text: testData[0].name + " cheat meals",
+            verticalAlign: 'middle',
+            y: -3
+        }
+	};
+
+var temp = new Highcharts.Chart(donutChartOptions);    
+});
+</script><!--end of cheat meal circle-->
+
+<!--RED cheat meal circle-->
+<script> 
+$(function () {
+	var testData = [{name:{{cheat_left}},y:{{cheat_left}}/{{total_cheat}}*100},{name:"aa",y:100-{{cheat_left}}/{{total_cheat}}*100,color:"#eee"}];
+
+	var donutChartOptions = {
+		chart: {
+			backgroundColor: '#fff' ,
+			margin: [0,0,0,0],
+			renderTo: 'TestDonutMealRED',
+			spacing: [0,0,0,0],
+			type: 'pie'
+		},
+        colors: ['#eb565a'],
+		credits: {
+			enabled: false
+		},
+        exporting: {
+			enabled: false
+		}, 
+		legend: {
+			enabled: false
+		},
+		plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    color: 'red'
+                }
+            },
+			pie: {
+                allowPointSelect: false,
+				dataLabels: {
+                    connectorWidth: 0,
+					enabled: false
+				},
+				shadow: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                },
+			},
+		},
+		tooltip: {
+			enabled: false
+		},
+		series: [{
+			data: testData,
+			name: "",
+			size: 125,
+			innerSize: 118,
+			pointPadding: 0,
+			groupPadding: 0
+		}],
+		template: 'donut',
+        title: {
+            align: 'center',
+            style: {
+                color: '#eb565a',
+                fontFamily: 'Arial, Helvetica, sans',
+                fontSize: '22px',
+                fontWeight: 'bold',
+                
+            },
+            text: testData[0].name + " cheat meals",
+            verticalAlign: 'middle',
+            y: -3
+        }
+	};
+
+var temp = new Highcharts.Chart(donutChartOptions);    
+});
+</script><!--end RED cheat meal circle-->
+
+<!--26/30 DAYS COMPLETED CIRCLE-->    
+<script>
+$(function () {
+    <!-- Original:  Justin Smith -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://www.javascriptsource.com -->
+
+<!-- Begin
+  var today = new Date();
+  var now = today.getDate();
+  var year = today.getFullYear();
+  var month = today.getMonth();
+
+var monarr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+// check for leap year
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monarr[1] = "29";
+
+// display day left
+var text = (monarr[month]-now) + " days left in this Month.";
+var remain = (monarr[month])
+
+	var testData = [{name:now,y:now/remain*100},{name:" ",y:100-(now/remain*100),color:"#eee"}];
+	var donutChartOptions = {
+		chart: {
+			backgroundColor: '#fff' ,
+			margin: [0,0,0,0],
+			renderTo: 'TestDonut',
+			spacing: [0,0,0,0],
+			type: 'pie'
+		},
+        colors: ['#22D1B9'],
+		credits: {
+			enabled: false
+		},
+        exporting: {
+			enabled: false
+		}, 
+		legend: {
+			enabled: false
+		},
+		plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    color: 'red'
+                }
+            },
+			pie: {
+                allowPointSelect: false,
+				dataLabels: {
+                    connectorWidth: 0,
+					enabled: false
+				},
+				shadow: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                },
+			},
+		},
+		tooltip: {
+			enabled: false
+		},
+		series: [{
+			data: testData,
+			name: "",
+			size: 125,
+			innerSize: 118,
+			pointPaddisng: 0,
+			groupPadding: 0
+		}],
+		template: 'donut',
+        title: {
+            align: 'center',
+            style: {
+                color: '#22D1B9',
+                fontFamily: 'Arial, Helvetica, sans',
+                fontSize: '22px',
+                fontWeight: 'bold'
+            },
+            text: testData[0].name + " days",
+            verticalAlign: 'middle',
+            y: 5
+        }
+	};
+
+var temp = new Highcharts.Chart(donutChartOptions);    
+});
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Page's title -->
+    <title>Appetit: Login</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">        
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+  <!--=================================================================-->
+<!--                         LOGIN PAGE                              -->
+<!--=================================================================-->
+
+  	<!--===============================================================-->
+  	<!--              ALERT # 1: NON-EXISTENT USER / PASS              -->
+  	<!--===============================================================-->
+
+  	<div id="alert" class="alert alert-info" role="alert">
+  	<a href="#" class="alert-link">
+  		<h4>You got an error!</h4>
+      	<p>It looks like the username and password combination you entered does not exist. Why dont you try again? :) </p>
+      	<button class="bs-callout bs-callout-danger" id="button1" onclick="hide1()" type="button">Understood</button> 
+  	</a>
+	</div>
+
+
+	<!--===============================================================-->
+	<!--                          LOGIN FORM                           -->
+	<!--===============================================================-->
+	
+	<div id="login-page">
+	  	<div class="container">
+		 	 <form class="form-login" action="#">
+                 
+		 	 	<!-- LOGIN FORM TYPE A: LOG IN BOX -->
+		        <h2 class="form-login-heading"><img class="logo" style="width:30%" src="./img/logo.svg"/></h2>
+		        <div class="login-wrap">
+                    <p style="font-size:14px; text-align:center; padding-bottom: 5px">Build better eating habits through visual journaling and flexible dietary planning.</p>
+		            <input id="username" type="text" class="form-control" placeholder="Username" autofocus>
+		            <br>
+		            <input id="password" type="password" class="form-control" placeholder="Password">
+		            <label class="checkbox">
+		                <!--<span class="pull-right">
+		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+		                </span>-->
+		            </label>
+		            <button id="sign"class="btn btn-theme btn-block"
+		            type="button" onclick="myfunction()"><i class="fa fa-lock"></i> SIGN IN</button>
+		            <hr>
+		            <div class="registration">
+		                Don't have an account yet?<br/>
+ 						<a data-toggle="modal" href="login.html#myModal2"> Create an account</a>
+		      		</div>
+		        </div>
+		        <!--END OF LOGIN FORM TYPE A: LOG IN BOX -->
+
+
+		
+		        <!-- LOGIN FORM TYPE B: FORGOT PASSWORD BOX -->
+		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+		              <div class="modal-dialog">
+		                  <div class="modal-content">
+		                      <div class="modal-header">
+		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                          <h4 class="modal-title">Forgot Password ?</h4>
+		                      </div>
+		                      <div class="modal-body">
+		                          <p>Enter your e-mail address below to reset your password.</p>
+		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		
+		                      </div>
+		                      <div class="modal-footer">
+		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+		                          <button class="btn btn-theme check_username" href="#"type="button">Submit</button>
+		                      </div>
+		                  </div>
+		              </div>
+		          </div>
+		          <!-- modal -->
+		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
+		              <div class="modal-dialog">
+		                  <div class="modal-content">
+		                      <div class="modal-header">
+		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h2 class="form-login-heading">Create an Account</h2>
+		                          <!--<h4 class="modal-title">Create an Account<h4>-->
+		                      </div>
+		                      <div class="modal-body">
+		                          <p>Username</p>
+		                          <input id="username2" type="text" name="user" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix">
+		                          <br>
+		                          <p>Password</p>
+		                          <input id="password2" type="text" name="pass" placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
+		                          <br>
+		                      </a>
+		                  </div>
+		                  <div id="alert2" class="alert alert-info" role="alert">
+  									<a href="#" class="alert-link">
+  									<h4>You got an error!</h4>
+  							    	<p>It looks like the Username you chose is already taken. Why dont you try another one?  </p>
+      								<button class="bs-callout bs-callout-danger" id="button2" onclick="hide2()" type="button">Understood</button> 
+      						</div>
+      							
+      								<div id="alert3" class="alert alert-info" role="alert">
+  									<a href="#" class="alert-link">
+  									<h4>Account created successfully!</h4>
+  							    	<p>Now try logging in </p>
+      								<button class="bs-callout bs-callout-danger" id="button3" onclick="hide3()" type="button">Understood</button>
+  									</a>
+									</div>
+
+		                  
+
+		                      <div class="modal-footer">
+		                      	<form id="CreateUser" role="form" method="get" action="../routes/index">
+		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+		                          <button class="btn btn-theme check_username" href="#"type="button" onclick="show1()">Create</button>
+		                      </form>
+		                      </div>
+		                  </div>
+		              </div>
+		          </div>
+		          <!-- modal -->
+		      </form>	  	
+	  	
+	  	</div>
+	  </div>
+
+
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+
+    <input type="hidden"  class="form-control" name="newUsername" id="newUsername" >
+    <input type="hidden"  class="form-control" name="newPassword" id="newPassword" >
+
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    <!--=========================================================================-->
+    
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+    <!--===============================================================-->
+  	<!--     SCRIPT E: IMPORT BACKSTRETCH (BACKGROUND EFFECT)          -->
+  	<!--===============================================================-->
+    <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+
+
+   	<!--===============================================================-->
+  	<!--   SCRIPT F: APPLYING BACKSTRETCH (BACKGROUND EFFECT)          -->
+  	<!--===============================================================-->
+    <script>
+        $.backstretch("img/login-background.jpg", {speed: 500});
+    </script>
+
+    <script>
+    $(document).ready(function(){
+
+    $(document).bind('keypress',pressed);
+});
+
+function pressed(e)
+{
+    if(e.keyCode === 13)
+    {
+        myfunction();
+    }
+}
+    </script>
+
+
+
+
+    <!--===============================================================-->
+  	<!--     SCRIPT F: COMPARING AGAINST JSON TO LOG USER OR NOT       -->
+  	<!--===============================================================-->
+    <script >
+	function myfunction()
+	{
+    console.log("heee");
+		//Receiving user and pass from input areas
+		var username = $('#username').val();
+		var password = $('#password').val();
+		
+		$.ajax('js/pass.json', {
+		dataType: 'json',
+      	success: function(results)
+      	{
+      		/*Looping through the JSON array to compare user 
+      		and pass against all possible usernames*/
+        	for(var index =0; index < results.userpass.length; index++)
+        	{
+        		if(results.userpass[index].username == username 
+        			&& results.userpass[index].password == password)
+        		{
+        			//Redirecting user to home window (LOGIN SUCCESS)
+          			window.location="/home"
+          			return true;
+        		}
+        	}
+        	//Displaying error message (LOGIN FAIL)
+        	$('#alert').show()
+    		return false;
+      	} });
+    }
+    </script>
+
+    <!--===============================================================-->
+  	<!--           SCRIPT B: SHOW ALERT1 WHEN TRIGGERED                -->
+  	<!--===============================================================-->
+    <script>
+    function hide1(){
+   		$('#alert').hide()
+    }
+    </script>
+
+    <!--===============================================================-->
+  	<!--           SCRIPT D: SHOW ALERT2 WHEN TRIGGERED                -->
+  	<!--===============================================================-->
+
+    <script>
+   	function hide2(){
+   		$('#alert2').hide()
+    }
+    </script>
+
+    <!--===============================================================-->
+  	<!--           SCRIPT D: SHOW ALERT3 WHEN TRIGGERED                -->
+  	<!--===============================================================-->
+
+    <script>
+    function hide3(){
+    	$('#alert3').hide()
+    }
+    </script>
+
+  	<!--===============================================================-->
+  	<!--            SCRIPT A: HIDE ALERTS UNTIL TRIGGERED              -->
+  	<!--===============================================================-->
+
+
+<script>
+    $('#alert').hide()
+    $('#alert2').hide()
+    $('#alert3').hide()
+    </script>
+
+
+    <script>
+    function show1(){
+
+    var username = $('#username2').val();
+    var password = $('#password2').val();
+    console.log(username);
+    console.log(password);
+    
+    $.ajax('js/pass.json', {
+    dataType: 'json',
+        success: function(results)
+        {
+          /*Looping through the JSON array to compare user 
+          and pass against all possible usernames*/
+          for(var index =0; index < results.userpass.length; index++)
+          {
+            if(results.userpass[index].username == username 
+              && results.userpass[index].password == password)
+            {
+                $('#alert2').show();
+                /*0000000000000000000000000000000000000000000
+                000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000
+                              ADD CCODE FOR NEW USER
+                */
+                return true;
+            }
+          }
+
+          $('#alert3').show();
+        return false;
+        } });
+    }
+    </script>
+
+    
+
+  </body>
+</html>

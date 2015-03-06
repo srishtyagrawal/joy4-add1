@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Necessary meta-data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Website title -->
+    <title>Monthly Report</title>
+    <!-- CSS -->
+    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--LINKING TO GOOGLE WEB FONTS -->
+ 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <!-- External CSS for gritter/pop notification-->
+    <link rel="stylesheet" type="text/css" href="js/gritter/css/jquery.gritter.css" />
+    <!-- Custom styles for this file -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+ 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
+</head>
+    
+   
+<body>     
+ <section id="container" >
+
+  <!--=================================================================-->
+  <!--          SECTION A:STATUS BAR:"APPETIT: MONTHLY REPORT"         -->
+  <!--=================================================================-->
+
+      <header class="header black-bg">
+          <br>
+        <center><h9>Monthly Report</h9></center>
+      </header><!--Section A end-->
+                
+  <!--=================================================================-->
+  <!--                        SECTION B: SUMMARY                       -->
+  <!--=================================================================-->
+    <section id="main-content">
+      <section class="wrapper site-min-height">
+        <div class="content-panel">
+          <!-- Title -->
+            <h2 id="summary">Summary</h2>
+          <!--End of Title -->
+          <!--Summary body  -->   
+          <div class="panel-body">
+            <h3>You had a total of</h3>
+            <center><div class="circle">{{cheat_had}}/{{total_cheat}}</div></center>
+            <h3>cheat meals this month</h3>
+            <br>
+            <div class="alert alert-success" role="alert">Well Done!</div>
+          </div> <!--End of summary body -->           
+        </div> 
+        </section>
+    </section><!--END OF SECTION B: SUMMARY -->
+     
+  <!--=================================================================-->
+  <!--                        SECTION C: GRAPHS                        -->
+  <!--=================================================================-->
+
+    <section class="wrapper site-min-height">
+        <div class="content-panel">
+          <!--Title -->
+          <h2>Your month in graphs</h2>
+          <!--End of title-->
+
+
+            <center>
+            <button type="button" class="btn btn-primary" onclick="Func_month()">Monthly</button>
+            <button type="button" class="btn btn-info" onclick="Func_week()">Weekly</button>
+            </center>
+        </div>
+
+      <!--Start of graphs-->
+        <div id="canvas-holder1">
+        <h4>Number of meals v/s Number of days</h4>
+            <canvas id="chart1"></canvas>
+        </div>
+        <div id="canvas-holder2">
+        <h4>Number of meals varying over days of a week</h4>
+            <canvas id="chart2"></canvas>
+        </div>
+        <div id="chartjs-tooltip"></div><!--End of graphs -->
+    
+        <!--Sorging buttons-->
+    </section><!-- ENF OF SECTION C: GRAPHS -->
+
+</section> <!-- end of container -->
+    
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color:#fff; border:none">
+  <div class="btn-group btn-group-justified">
+    <a class="btn btn-primary btn" href="/home" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/home.svg"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/upload.svg"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/report.svg"/></a>
+  </div>
+</nav> 
+           
+              
+<!--=================================================================-->
+<!--                               SCRIPTS                           -->
+<!--=================================================================-->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="js/jquery.sparkline.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="js/gritter-conf.js"></script>
+    
+
+    <!--common script for all pages-->
+    <script src="js/common-scripts.js"></script>
+
+    <script>
+
+    Chart.defaults.global.pointHitDetectionRadius = 1;
+    Chart.defaults.global.customTooltips = function(tooltip) {
+
+        var tooltipEl = $('#chartjs-tooltip');
+
+        if (!tooltip) {
+            tooltipEl.css({
+                opacity: 0
+            });
+            return;
+        }
+
+        tooltipEl.removeClass('above below');
+        tooltipEl.addClass(tooltip.yAlign);
+
+        var innerHtml = '';
+        for (var i = tooltip.labels.length - 1; i >= 0; i--) {
+            innerHtml += [
+                '<div class="chartjs-tooltip-section">',
+                '	<span class="chartjs-tooltip-key" style="background-color:' + tooltip.legendColors[i].fill + '"></span>',
+                '	<span class="chartjs-tooltip-value">' + tooltip.labels[i] + '</span>',
+                '</div>'
+            ].join('');
+        }
+        tooltipEl.html(innerHtml);
+
+        tooltipEl.css({
+            opacity: 1,
+            left: tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
+            top: tooltip.chart.canvas.offsetTop + tooltip.y + 'px',
+            fontFamily: tooltip.fontFamily,
+            fontSize: tooltip.fontSize,
+            fontStyle: tooltip.fontStyle,
+        });
+    };
+    var lineChartData = {
+        labels: ["1", "5", "10", "15", "20", "25", "30"],
+        yAxis: {
+        max: 50
+        },
+        datasets: [{
+            label: "My First dataset",
+            fillColor: "rgba(255,0,0,0.2)",
+            strokeColor: "rgba(255,0,0,1) ",
+            pointColor: "rgba(255,0,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [15.6,16.8,11.4,20.6, 17.5, 30.5, 1.5, 3.6]
+        }, {
+            label: "My Second dataset",
+            fillColor: "rgba(0,127,0,0.2)",
+            strokeColor: "rgba(0,127,0,1)",
+            pointColor: "rgba(0,127,0,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [11.4,15.6,20.6, 12.7, 17.5, 30.5, 9.5, 53.6]
+        }]
+    };
+	var ctx2 = document.getElementById("chart1").getContext("2d");
+	new Chart(ctx2).Line(lineChartData, {responsive: true});
+    </script>
+            
+    <script>
+    var barChartData = {
+        labels : ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+        datasets : [
+            {
+                fillColor : "rgba(255,0,0,0.2)",
+                strokeColor : "rgba(255,0,0,1)",
+                highlightFill: "rgba(220,220,220,0.75)",
+                highlightStroke: "rgba(220,220,220,1)",
+                data : [15,6,11,20,17, 3, 1]
+            },
+            {
+                fillColor : "rgba(0,127,0,0.2)",
+                strokeColor : "rgba(0,127,0,1)",
+                highlightFill : "rgba(151,187,205,0.75)",
+                highlightStroke : "rgba(151,187,205,1)",
+                data : [20,15,26,12,17,30,19]
+            }
+        ]
+
+    }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        var unique_id = $.gritter.add({
+            // (string | mandatory) the heading of the notification
+            title: 'Hi there buddy,',
+            // (string | mandatory) the text inside the notification
+            text: 'This is the monthly report, where you will find information about your eating habits throughout the past motnth.',
+            // (string | optional) the image to display on the left
+            image: 'img/ui-sam.jpg',
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: true,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: '',
+            // (string | optional) the class name you want to apply to that specific message
+            class_name: 'my-sticky-class'
+        });
+
+        return false;
+        });
+    </script>
+
+    <script>
+        function Func_month() 
+        {
+        document.getElementById("canvas-holder2").style.display="none"
+        document.getElementById("canvas-holder1").style.display="block";
+        var ctx2 = document.getElementById("chart1").getContext("2d");
+        new Chart(ctx2).Line(lineChartData, {responsive: true});
+        }
+
+        function Func_week() 
+        {
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="block";
+        var ctx = document.getElementById("chart2").getContext("2d");
+        new Chart(ctx).Bar(barChartData, {responsive : true});
+        }
+    </script>
+            
+</body>
+
+
+</html>

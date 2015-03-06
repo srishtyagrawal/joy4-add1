@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Image information page</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+<link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="../css/homepage.css" rel="stylesheet">
+<link href="../css/imginfo.css" rel="stylesheet" >
+<link href="../css/style.css" rel="stylesheet" >
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<!--for glyphicons-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+<!--==================================================-->
+<!--         SECTION A: TOP NAV / HEADER              -->
+<!--==================================================-->
+<header  class="header black-bg">
+    <a href="/home" class="logo"><img class="sorters" src="/img/back.svg"/></a>
+    <br>
+    <center><h9 style="padding-right:60px">Meal</h9></center>
+</header>
+<!--Section A end-->
+    
+
+<!--==================================================-->
+<!--Content-->
+<!--==================================================-->
+<!--meal image-->
+<div class="meal-image">   
+    <img class="tp" src="../img/{{image}}" alt="Generic placeholder thumbnail" >
+</div><br>
+
+<!--container-->
+<div class="container">
+    
+    
+<!--time and date-->
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div class="time" style="display: table-cell;">{{time}}</div>
+        <div class="date" style="display: table-cell;">{{date}}</div>
+    </div>
+</div>
+
+<!--smiley and location-->
+    
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div class="moods" style="width: 40%"><img class="smiley" src="../img/{{mood}}"><img class="smiley" src="../img/{{type_img}}"></div>
+        <div class="location"><i class="fa fa-map-marker" style="color: #888"></i> {{location}}</div>
+    </div>
+</div>
+<br>
+<!--divider-->
+<hr style="border: 1px thin solid #c6c6c6; margin: 20px;"></hr>  
+  
+
+<!--meal title-->
+<div class="meal-title">{{name}}</div>
+    
+
+<!--meal description-->
+<div class="caption">
+     {{desc}}
+</div>
+<br><br><br>
+<!-- Modal -->
+
+<div class="container">
+
+        <div class="row text-center">
+            <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#smallModal">Click to delete entry</a>
+        </div>
+        <hr>
+
+    </div>
+    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Deleting meal log</h4>
+          </div>
+          <div class="modal-body">
+            <h3>Are you sure that you want to delete this entry forever?</h3>
+          </div>
+          <div class="modal-footer">
+		  <form role="form" method="get" action="/del">
+		  <ul class="pager">
+			<input type="hidden" class="form-control" name="id" id="id" >
+			<li><input type="submit" id="submitBtn" class="btn btn-default" value="Confirm"></input></li>
+			<li><input type="button" id="cancelBtn" class="btn btn-default" value="Cancel" onClick="parent.location='/home'"></input></li>
+		  </ul>
+		  </form>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+</div><!--end container-->
+
+<br>
+
+
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color:#fff; border:none">
+  <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary btn" href="/home" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/home.svg"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/upload.svg"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/report.svg"/></a>
+  </div>
+</nav> 
+
+<script>
+	console.log("jooo");
+	$("#id").attr("value",{{id}});
+	console.log($("#id").val());
+</script>
+    
+</body>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--NECESSARY META DATA -->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<!-- WEBSITE TITLE -->
+ 	<title>Appetit: Homepage</title>
+ 	<!--LINKING TO BOOTSTRAP-->
+ 	<link href="css/bootstrap.min.css" rel="stylesheet">
+ 	<!--LINKING TO CSS-->
+ 	<link href="css/homepage.css" rel="stylesheet">
+ 	<!--LINKING TO GOOGLE WEB FONTS -->
+ 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+ 	<!--NOT QUITE SURE WHAT THIS IS YET-->
+ 	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<!--SECTION A: Homepage's top header: "Remaining cheat meals" -->
+<div id ="jumbotron" class="jumbotron">
+	<div class="container">
+
+        
+<!--SETTINGS MENU BAR add under container-->        
+<ul class="nav nav-tabs">
+   <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+         <span class="glyphicon glyphicon-menu-hamburger" style="color:black" aria-hidden="true"></span>
+      </a>
+      <ul class="dropdown-menu">
+         <li><a href="/edit">Edit cheat meals</a></li>
+         <li class="divider"></li>
+         <li><a href="/">Log out</a></li>
+      </ul>
+   </li>
+</ul>
+
+        
+        
+        
+        
+        
+	<!--Cheat meals remaining: number and text-->
+	<!--Below is the commented code for image-->
+	<!--<center id="circle"><img  id ="remaining" src="./images/circle.png" alt="..." class="img-circle"></center>-->
+	<center><p class="prompt"><span style="border-radius:50%; border:solid black 1px;padding:5px">{{cheat_left}}/{{total_cheat}}</span> Cheat meals remaining</p></center>
+  </div>
+</div>
+<!--END OF SECTION A -->
+
+<!--SECTON B: PROGRESS BAR -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="progress">
+  		<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100" style="width: 96%;">
+    	4 days left ...
+ 		</div>
+	</div>
+</div>
+<!--END OF SECTION B -->
+
+
+<!-- SECTION D: PHOTO GRID -->
+<br>
+{{#each meal}}
+<center>
+<div class="row">
+   <div class="col-sm-6 col-md-5">
+      <a href="viewingMeal/{{id}}" class="thumbnail">
+         <img class ="tp" src="./img/{{image}}" 
+         alt="Generic placeholder thumbnail">
+      </a>
+   </div>
+</div>
+</center>
+{{/each}}
+<!-- END OF SECTION D -->
+ <br><br>
+  
+
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="btn-group btn-group-justified">
+    <a class="btn btn-primary btn" href="/" role="button" style="background-color:#000; border:none"><img class="sorters" src="./img/home.png"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#000; border:none"><img class="sorters" src="./img/camera.png"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#000; border:none"><img class="sorters" src="./img/chart.png"/></a>
+  </div>
+</nav> 
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+  <script>
+  function myfunc(){
+    console.log("HERE");
+  }
+  </script> 
+</body>

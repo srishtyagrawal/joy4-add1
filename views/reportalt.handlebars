@@ -1,0 +1,728 @@
+<!DOCTYPE html> <!--PUBLIC "-//W3C//DTD HTML4.0 translation //EN">-->
+<html lang="en">
+<head>
+    <!--Necessary meta-data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Website title -->
+    <title>Monthly Report</title>
+    <!-- CSS -->
+    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--LINKING TO GOOGLE WEB FONTS -->
+ 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this file -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="js/jquery.sparkline.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+	
+    <script src="js/common-scripts.js"></script>
+	<script>
+	$(document).on("pagecreate",function(){
+	alert("pagecreate event fired - the page has been initialized, the DOM has been loaded and jQuery Mobile has finished enhancing the page.")
+	}); 
+	</script>    
+   
+<body style="font-family:'Open Sans', san-serif">     
+ <section id="container" >
+
+     
+<!--==================================================================-->
+<!--                SECTION A: TOP NAV / HEADER                       -->
+<!--==================================================================-->
+<header  class="header black-bg">
+    <!--logo start-->
+    <a href="./home" class="logo"><img class="sorters" src="./img/logo.svg"/></a>
+    <!--logo end-->
+    
+    <div class="nav notify-row" id="top_menu">       
+    </div>
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="/">Log Out</a></li>
+            </ul>
+        </div>
+</header>
+<!--Section A end-->
+                
+  <!--=================================================================-->
+  <!--                        SECTION B: SUMMARY                       -->
+  <!--=================================================================-->
+<br><br><br><br>
+            <ul class="nav nav-tabs">
+        <li role="presentation" class="active" onclick="summary()"><a href="#">Summary</a></li>
+        <li id="weekly" role="presentation" class=""><a href="#" onclick="weekly()">Weekly</a></li>
+        <li id="monthly"role="presentation" class=""><a href="#" onclick="monthly()">Monthly</a></li>
+        <li id="reason" role="presentation" class=""><a href="#" onclick="reason()">Reason</a></li>
+        <li id="mood"role="presentation" class=""><a href="#" onclick="mood()">Mood</a></li>
+        <li id="map"role="presentation" class=""><a href="#" onclick="map()">Map </a></li>
+        <li id="general"role="presentation" class=""><a href="#" onclick="general()">General</a></li>
+        </ul>
+    <div id="first">
+    <section id="main-content">
+
+      <section class="wrapper" style="margin-top:0">
+        <div class="content-panel" style="border:none">
+
+          <!-- Title -->
+            <h2 id="summary">Summary</h2>
+            <hr style="border: 1px thin solid #c6c6c6"></hr>  
+          <!--End of Title -->
+          <!--Summary body  -->   
+          <div class="panel-body">
+            <h3 style="margin-top:5px">You had a total of</h3>
+            
+              
+              <!--STATIC CHEAT MEAL CIRCLE
+              <center><div class="round"><div class="circle1">{{cheat_had}}/{{total_cheat}}</div></div></center>-->
+              
+              <br>
+        <center>
+            <div id="TestDonutMeal2" style="width: 125px; height: 125px"></div>
+        </center>
+              
+              
+            <h3>cheat meals this month</h3>
+            <br>
+			<!-- Tring scriplets
+			<% if ( {{cheat_had}} > {{total_cheat}} ) { %>
+			<p>Hello, world</p>
+			<% } else { %>
+			<p>Goodbye, world</p>
+			<% } %> -->
+            <div id="yay" class="alert alert-success" role="alert">Well Done!</div>
+            <div id="nay" class="alert alert-danger" role="alert">Too bad! You can always try again next month :) </div>
+          </div> <!--End of summary body -->           
+        </div> 
+        </section>
+    </section><!--END OF SECTION B: SUMMARY -->
+    <br><br>
+</div>
+     
+  <!--=================================================================-->
+  <!--                        SECTION C: GRAPHS                        -->
+  <!--=================================================================-->
+
+    <section class="wrapper site-min-height" style="margin-top:0px; min-height:0px">
+        <div id="cp" >
+        <div class="content-panel" style="border:none" >
+        </div>
+          <!--Title -->
+          <h2 id="time" style="padding:0; margin:0">Your Timeline</h2><br>
+          <!--End of title-->
+
+<!--
+            <center>
+			<button type="button" class="btn btn-primary" onclick="Func_map()">Map</button>
+			<button type="button" class="btn btn-success" onclick="Func_mood()">Mood</button>
+			<button type="button" class="btn btn-warning" onclick="Func_reason()">Reason</button>
+            <button type="button" class="btn btn-danger" onclick="Func_month()">Monthly</button>
+            <button type="button" class="btn btn-info" onclick="Func_week()">Weekly</button><br><br>
+            </center>
+    -->   
+
+      <!--Start of graphs-->
+        <div class ="graphs111">
+        <center>
+        <div id="canvas-holder1">
+            <h15>Number of meals versus Number of days</h15>
+            <br><br><br>
+            <canvas id="chart1"></canvas>
+            <p id="v1" style="padding-bottom: 10px"><b>Meals  Logged</b></p>
+            <p><b> Days in a Month </b><p>
+        </div>
+        <div id="canvas-holder2">
+        <h15>Number of meals varying over days of a week</h15>
+             <br><br><br>
+             <canvas id="chart2"></canvas>
+             <p id="v1" style="padding-bottom:10px "><b>Avg. of Meals  Logged</b></p>
+             <p><b> Days of the Week </b><p>
+        </div>
+		<div id="canvas-holder3">
+            <h15>Relation between mood and meals</h15>
+            <br><br><br>
+            <canvas id="chart3"></canvas>
+        </div>
+        <div id="canvas-holder4">
+            <h15>Reasons why you eat VS meal types</h15>
+            <br><br><br>
+            <canvas id="chart4"></canvas>
+        </div>
+        <div id="canvas-holder5">
+            <h15>Most common meal types at your top eating locations</h15>
+            <br><br><br>
+            <img src="./img/map.jpg" width="80%" height="80%">
+        </div>
+        <div id="chartjs-tooltip"></div>
+        </center>
+        </div>
+            
+    <br>
+       <div id = "legend1">
+    <center>
+        <table style="width:240px" class="squares">
+            <tr>
+            <td><div class="redsquare" style="margin-left:10px; margin-right:5px"></div></td>
+            <td>Cheat Meals</td> 
+            <td><div class="greensquare" style="margin-left:20px; margin-right:5px"></div></td>
+            <td>Healthy Meals</td>
+            </tr>
+        </table>
+    </center>
+    </div>
+
+    <div id = "legend2">
+    <center>
+        <div style="width:170px" class="squares">
+        <table style="width:170px">
+            <tr>
+            <td><div class="redsquare" style="margin-left:10px"></div></td>
+            <td style="text-align:right; padding-right:10px">Cheat & sad</td> 
+            </tr>
+        </table>
+        <table style="width:170px">
+            <tr>
+            <td><div class="orangesquare" style="margin-left:10px"></div></td>
+            <td style="text-align:right; padding-right:10px">Cheat & happy</td>
+            </tr>
+        </table>
+         <table style="width:170px">
+            <tr>
+            <td><div class="greensquare" style="margin-left:10px"></div></td>
+            <td style="text-align:right; padding-right:10px">Healthy & happy</td>
+            </tr>
+        </table>
+         <table style="width:170px">
+            <tr>
+            <td><div class="yellowsquare" style="margin-left:10px"></div></td>
+            <td style="text-align:right; padding-right:10px">Healthy & sad</td>
+            </tr>
+        </table>
+            </div>
+    </center>
+    </div>
+        </div><!--End of graphs -->
+        </div>
+
+   <br>
+    <div id="patterns" class="content-panel" style="padding:10px; border:none">
+          <!--Title -->
+        <h2 style="text-align:center">General Eating Patterns</h2>
+        <br>
+        <div class="alert alert-success" role="alert">
+        <strong>You eat the healthiest on Sundays at 2:00 pm</strong> Why do you think this is?
+        </div>
+        <div class="alert alert-info" role="alert">
+        <strong>The happier you are, the better you eat</strong> Had you noticed?
+        </div>
+        <div class="alert alert-warning" role="alert">
+        <strong>Watch out on Wednesdays at 9:00 PM!! You crave the most cheat meals then</strong> Keep this in mind
+        </div>
+        <div class="alert alert-danger" role="alert">
+        <strong>The most common reason for cheat meals this month was being in a rush</strong> You think you can change this?
+        </div>
+        </div>
+        <br><br><br><br>
+    </section><!-- ENF OF SECTION C: GRAPHS -->
+
+
+
+
+</section> <!-- end of container -->
+
+
+  
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color:#fff; border:none">
+  <div class="btn-group btn-group-justified">
+    <a class="btn btn-primary btn" href="/home" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/home.svg"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="/img/upload.svg"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#333; border:1; border-color: #878787"><img class="sorters" src="/img/report.svg"/></a>
+  </div>
+</nav> 
+           
+              
+<!--=================================================================-->
+<!--                               SCRIPTS                           -->
+<!--=================================================================-->
+
+    
+
+    <!--common script for all pages-->
+
+
+    <script>
+    Chart.defaults.global.pointHitDetectionRadius = 1;
+    Chart.defaults.global.customTooltips = function(tooltip) {
+        var tooltipEl = $('#chartjs-tooltip');
+        if (!tooltip) {
+            tooltipEl.css({
+                opacity: 0
+            });
+            return;
+        }
+        tooltipEl.removeClass('above below');
+        tooltipEl.addClass(tooltip.yAlign);
+        var innerHtml = '';
+        for (var i = tooltip.labels.length - 1; i >= 0; i--) {
+            innerHtml += [
+                '<div class="chartjs-tooltip-section">',
+                '	<span class="chartjs-tooltip-key" style="background-color:' + tooltip.legendColors[i].fill + '"></span>',
+                '	<span class="chartjs-tooltip-value">' + tooltip.labels[i] + '</span>',
+                '</div>'
+            ].join('');
+        }
+        tooltipEl.html(innerHtml);
+        tooltipEl.css({
+            opacity: 1,
+            left: tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
+            top: tooltip.chart.canvas.offsetTop + tooltip.y + 'px',
+            fontFamily: tooltip.fontFamily,
+            fontSize: tooltip.fontSize,
+            fontStyle: tooltip.fontStyle,
+        });
+    };
+    var lineChartData = {
+        labels: ["1", "5", "10", "15", "20", "25", "30"],
+        yAxis: {
+        max: 50
+        },
+        datasets: [{
+            label: "My First dataset",
+            fillColor: "rgba(235,86,90,0.2)",
+            strokeColor: "rgba(235,86,90,1) ",
+            pointColor: "rgba(235,86,90,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [0,2,0,3, 4, 0, 0]
+        }, {
+            label: "My Second dataset",
+            fillColor: "rgba(155,204,50,0.2)",
+            strokeColor: "rgba(155,204,50,1)",
+            pointColor: "rgba(155,204,50,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroake: "rgba(151,187,205,1)",
+            data: [3,1,4, 0, 1, 3, 2]
+        }]
+    };
+	var ctx2 = document.getElementById("chart1").getContext("2d");
+	new Chart(ctx2).Line(lineChartData, {responsive: true});
+    </script>
+            
+        <script>
+    var barChartData = {
+        labels : ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+        datasets : [
+            {
+                fillColor : "rgba(235,86,90,0.2)",
+                strokeColor : "rgba(235,86,90,1)",
+                highlightFill: "rgba(220,220,220,0.75)",
+                highlightStroke: "rgba(220,220,220,1)",
+                data : [4,6,0,1,1, 3, 1]
+            },
+            {
+                fillColor : "rgba(155,204,50,0.2)",
+                strokeColor : "rgba(155,204,50,1)",
+                highlightFill : "rgba(151,187,205,0.75)",
+                highlightStroke : "rgba(151,187,205,1)",
+                data : [1,5,3,0,2,3,5]
+            }
+        ]
+    }
+    </script>
+    
+        <script>
+    
+    var PieChartdata = [
+    {
+        value: 10,
+        color:"#eb565a",
+        highlight: "#eb565a",
+        label: "Red"
+    },
+    {
+        value: 2,
+        color:"#f1d50a",
+        highlight: "#f1d50a",
+        label: "Yellow"
+    },
+    {
+        value: 5,
+        color: "#9bcc32",
+        highlight: "#9bcc32",
+        label: "Green"
+    },
+    {
+        value: 15,
+        color: "#f0ad4e",
+        highlight: "#f0ad4e",
+        label: "Orange"
+    }
+    ]
+    </script>
+	
+	<script>
+    var radarChartData = {
+        labels: ["Friend invited me", "I was tired", "In a rush", "Don't know", "Date with Jenny", "Short on money", "Looked good!"],
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(235,86,90,0.2)",
+                strokeColor: "rgba(235,86,90,1)",
+                pointColor: "rgba(235,86,90,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [65,59,90,81,56,55,40]
+            },
+            {
+                label: "My Second dataset",
+                fillColor: "rgba(155,204,50,0.2)",
+                strokeColor: "rgba(155,204,50,1)",
+                pointColor: "rgba(155,204,50,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [28,48,40,19,96,27,100]
+            }
+        ]
+    };
+    </script>
+
+    <script>
+    function weekly(){
+        document.getElementById("cp").style.display="block";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="none";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="block";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx = document.getElementById("chart2").getContext("2d");
+                $("#legend2").hide();
+        $("#legend1").show();
+        new Chart(ctx).Bar(barChartData, {responsive : true});
+        $('#weekly').siblings().removeClass("active").end().addClass("active");
+    }
+    function monthly(){
+        document.getElementById("cp").style.display="block";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="none";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="block";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx2 = document.getElementById("chart1").getContext("2d");
+                        $("#legend2").hide();
+        $("#legend1").show();
+        new Chart(ctx2).Line(lineChartData, {responsive: true});
+        $('#monthly').siblings().removeClass("active").end().addClass("active");
+    }
+    function reason(){
+        document.getElementById("cp").style.display="block";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="none";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="block";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx2 = document.getElementById("chart4").getContext("2d");
+                        $("#legend2").hide();
+        $("#legend1").show();
+        new Chart(ctx2).Radar(radarChartData, {responsive: true});
+        $('#reason').siblings().removeClass("active").end().addClass("active");
+    }
+    function mood(){
+        document.getElementById("cp").style.display="block";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="none";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="block";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx = document.getElementById("chart3").getContext("2d");
+        $("#legend1").hide();
+        $("#legend2").show();
+        new Chart(ctx).Pie(PieChartdata,{responsive : true});
+        $('#mood').siblings().removeClass("active").end().addClass("active");
+    }
+    function map(){
+        document.getElementById("cp").style.display="block";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="none";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="block";
+        $("#legend1").show();
+        $("#legend2").hide();
+        $('#map').siblings().removeClass("active").end().addClass("active");
+    }
+    function general(){
+        document.getElementById("cp").style.display="none";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="none";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="block";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        $('#general').siblings().removeClass("active").end().addClass("active");
+    }
+    function summary(){
+        document.getElementById("cp").style.display="block";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="block";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        $("#legend1").hide();
+        $("#legend2").hide();
+        $('#summary').siblings().removeClass("active").end().addClass("active");
+    }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder1").style.display="block";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        document.getElementById("time").style.display="none";
+        document.getElementById("first").style.display="block";
+        document.getElementById("legend1").style.display="none";
+        document.getElementById("legend2").style.display="none";
+        document.getElementById("patterns").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        return false;
+        });
+    </script>
+
+
+
+    <script>
+        function Func_month() 
+        {
+        //$(".graphs111").hide();
+        console.log("m");
+        $("#legend2").hide();
+        $("#legend1").show();
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder1").style.display="block";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        document.getElementById("canvas-holder1").style.display="block";
+        var ctx2 = document.getElementById("chart1").getContext("2d");
+        new Chart(ctx2).Line(lineChartData, {responsive: true});
+        }
+        function Func_week() 
+        {
+        $("#legend2").hide();
+        $("#legend1").show();
+        //$(".graphs111").hide();
+        console.log("h");
+        document.getElementById("canvas-holder2").style.display="block";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx = document.getElementById("chart2").getContext("2d");
+        new Chart(ctx).Bar(barChartData, {responsive : true});
+        }
+		function Func_mood() 
+        {
+        //$(".graphs111").hide();
+        $("#legend2").hide();
+        $("#legend1").show();
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder3").style.display="block";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx = document.getElementById("chart3").getContext("2d");
+        $("#legend1").hide();
+        $("#legend2").show();
+		new Chart(ctx).Pie(PieChartdata,{responsive : true});
+        }
+		function Func_map() 
+        {
+        document.getElementById("canvas-holder5").style.display="block";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        //$(".graphs111").hide();
+        /*document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder4").style.display="none";
+        document.getElementById("canvas-holder5").style.display="none";
+        var ctx2 = document.getElementById("chart1").getContext("2d");
+        new Chart(ctx2).Line(lineChartData, {responsive: true});*/
+        }
+		function Func_reason() 
+        {
+        //$(".graphs111").hide();
+        $("#legend2").hide();
+        $("#legend1").show();
+        document.getElementById("canvas-holder5").style.display="none";
+        document.getElementById("canvas-holder2").style.display="none";
+        document.getElementById("canvas-holder3").style.display="none";
+        document.getElementById("canvas-holder1").style.display="none";
+        document.getElementById("canvas-holder4").style.display="block";
+        var ctx2 = document.getElementById("chart4").getContext("2d");
+		new Chart(ctx2).Radar(radarChartData, {responsive: true});
+		}
+        
+    </script>
+
+    <script>
+    $("#yay").hide();
+    $("#nay").hide();
+    </script>
+
+    <script>
+    if({{cheat_had}} > {{total_cheat}})
+    {
+        $("#nay").show();  
+    }
+    else
+    {
+        $("#yay").show();   
+    }
+    </script>
+            
+
+    
+    <!--script for donut chart-->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!--CHEAT MEAL DYNAMIC CIRCLE-->
+    <script>
+$(function () {
+	var testData = [{name:{{cheat_had}},y:{{cheat_had}}/{{total_cheat}}*100},{name:" ",y:100-{{cheat_had}}/{{total_cheat}}*100,color:"#eee"}];
+    {{cheat_had}}/{{total_cheat}}*100
+	var donutChartOptions = {
+		chart: {
+			backgroundColor: '#fff' ,
+			margin: [0,0,0,0],
+			renderTo: 'TestDonutMeal2',
+			spacing: [0,0,0,0],
+			type: 'pie'
+		},
+        colors: ['#FFC101'],
+		credits: {
+			enabled: false
+		},
+        exporting: {
+			enabled: false
+		}, 
+		legend: {
+			enabled: false
+		},
+		plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    color: 'red'
+                }
+            },
+			pie: {
+                allowPointSelect: false,
+				dataLabels: {
+                    connectorWidth: 0,
+					enabled: false
+				},
+				shadow: false,
+                states: {
+                    hover: {
+                        enabled: false
+                    }
+                },
+			},
+		},
+		tooltip: {
+			enabled: false
+		},
+		series: [{
+			data: testData,
+			name: "",
+			size: 125,
+			innerSize: 118,
+			pointPadding: 0,
+			groupPadding: 0
+		}],
+		template: 'donut',
+        title: {
+            align: 'center',
+            style: {
+                color: '#FFC101',
+                fontFamily: 'Arial, Helvetica, sans',
+                fontSize: '22px',
+                fontWeight: 'bold',
+                
+            },
+            text: testData[0].name + " cheat meals",
+            verticalAlign: 'middle',
+            y: -3
+        }
+	};
+var temp = new Highcharts.Chart(donutChartOptions);    
+});
+    </script>
+    
+</body>
+
+
+</html>

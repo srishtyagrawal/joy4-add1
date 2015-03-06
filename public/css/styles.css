@@ -1,0 +1,66 @@
+html,body {
+  height:100%;
+}
+
+
+h1 {
+  font-family: Arial,sans-serif
+  font-size:80px;
+  color:#000000;
+}
+
+.lead {
+	color:#DDCCEE;
+}
+
+
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  background-color: #66FF99;
+  /*background-color:#110022;*/
+  color:#eee;
+  overflow:hidden;
+}
+
+.container-full a {
+  color:#efefef;
+  text-decoration:none;
+}
+
+#good, #bad{
+  display: inline-block;
+  width:79px;
+  height: 79px;
+}
+
+.v-center {
+  margin-top:7%;
+}
+
+
+
+#foodThumnail {
+  width:200px;
+  height:200px;
+}
+/*  
+img {
+  max-height: 60px;
+}*/
+
+.btn-group,nav,a {
+  background-color: #000000;
+  color: #000000
+}
+
+.btn-success{
+  text-align:center;
+}
+
+a{
+  margin-right: 40px;
+   background-color: #000000;
+}

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Bootstrap 3 Template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!--LINKING TO BOOTSTRAP-->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-clockpicker.min.css">
+
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style-responsive.css" rel="stylesheet">
+		<link href="css/slidemenu.css" rel="stylesheet">
+        <link href="css/homepage.css" rel="stylesheet">
+        <!--<link rel="stylesheet" type="text/css" href="css/github.min.css">
+        <link rel="stylesheet" type="text/css" href="css/datepicker.css">-->
+        <!--for glyphicons-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	</head>
+	
+<body>
+<!--==================================================================-->
+<!--                SECTION A: TOP NAV / HEADER                       -->
+<!--==================================================================-->
+<header  class="header black-bg">
+    <!--logo start-->
+    <a href="./home" class="logo"><img class="sorters" src="./img/logo.svg"/></a>
+    <!--logo end-->
+    
+    <div class="nav notify-row" id="top_menu">       
+    </div>
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="/">Log Out</a></li>
+            </ul>
+        </div>
+</header>
+<!--Section A end-->
+    <br><br><br><br><br>
+    
+	<!--Start of meal thumnail -->
+
+	<!--<div id="smailnail" class="thumbnail">-->
+	<div class="capturephoto" style="text-align:center">
+        <img id ="foodThumnail" src="img/{{image}}" alt="foodThumnail">
+        <br></br>
+        <!-- Makes the picture a button
+        <center><a href="#" class="btn" role="button"><img id="foodThumnail" src="img/foodThumbail.jpg"></a></center>
+        -->
+		<!--Upload the file -->
+		<form name="mf" id="mf"role="form" method="post" action="/upload" name="uploadForm" enctype="multipart/form-data">
+
+
+      <span class="btn btn-default btn-file"> Browse
+			<center><input type="file" name="imageUploader" name="nm" id="nm"></center>
+      </span>
+
+
+
+      <button class="btn btn-default" onclick="funcky()">Confirm</button>
+
+      <input id="push" type="submit" onclick="myfunc(event)">
+
+		</form>
+	    </div> <!--end capturephoto-->
+    <!--</div>//end smailnail-->
+    
+    <br>
+    
+    <hr style="1px thin solid #666"></hr>
+    
+  <!--How are you feeling section?-->
+  <!--END OF:  how are you feeling section?-->
+
+
+
+	<div class="container" style="font-family:'open sans', san serif">
+        <h2><b>Tell us about your meal</b></h2><br>
+  <form role="form" method="get" action="/add">
+    <div class="row1">
+      <label class="control-label center-block" for="input01">How are you feeling?</label><br>
+      <center><p>
+          <a href="#" id ="SAD" class="btn btn-danger class1" role="button" onclick="myfunc1(event);">
+              <img id="bad" src="img/sad-color.svg"></a>
+          <a href="#" class="btn btn-success class2" id="HAPPY" role="button" onclick="myfunc2(event);">
+              <img id="good" src="img/happy-color.svg"></a>
+      </p></center>
+    </div>
+    <div class="row2"><br>
+      <label class="control-label center-block" for="input01">Was this a healthy meal or a cheat meal?</label><br>
+      <center><p>
+          <a href="#"  id ="CHEAT" class="btn btn-danger class1" role="button" onclick="myfunc3(event);">
+              <img id="bad" src="img/cheat.svg"></a>
+          <a href="#" class="btn btn-success class2" id="HEALTH" role="button" onclick="myfunc4(event);">
+              <img id="good" src="img/healthy.svg"></a>
+      </p></center>
+    </div><br>
+    <div class="form-group">
+      <label for="usr"> Meal name: </label>
+      <input type="text" name="name" class="form-control" id="name" 
+      placeholder="How's that dish called?">
+    </div>
+    <div class="form-group">
+      <label for="usr"> Location where you ate: </label>
+      <input type="text" name="loc" class="form-control" id="loc"
+      placeholder="Where did you eat?">
+    </div>
+   	<div class="form-group">
+      <label for="usr"> Why did you have this meal? </label>
+      <input type="text" name="desc" class="form-control" id="desc"
+      placeholder="Special offer? Too much work? In a rush?">
+    </div>
+   	<div class="form-group">
+      <label for="usr"> Date ( yyyy-mm-dd )</label>
+      <input type="text" name="date" class="form-control" id="date">
+    </div>
+   	<div class="form-group">
+      <label for="usr"> Time (hh:mm) 24 hours clock </label>
+      <input type="text" date="time" class="form-control" id="time" >
+    </div>
+
+<br>
+    <!--SUBMIT AND CANCEL BUTTONS-->
+	    <ul class="pager">
+			<li><input type="submit" id="submitBtn" class="btn btn-default" value="Add meal" onclick="preventOrAllow(event)"></input></li>
+			<li><input type="button" id="cancelBtn" class="btn btn-default" value="Cancel" onClick="parent.location='/home'"></input></li>
+		</ul>
+    <input type="hidden" date="time" class="form-control" name="address" id="address" >
+    <input type="hidden" date="time" class="form-control" name="mood" id="mood" >
+    <input type="hidden" id="ss" class="form-control" name="ss" onclick="funcka(event)" >
+    <input type="hidden" date="time" class="form-control" name="health" id="health" >
+	<input type="hidden" date="time" class="form-control" name="type_img" id="type_img" >
+	</form>
+ 
+<div id="error5"class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><b id="errtext" style="padding-left:15px">Please select your mood</b>
+</div>
+
+ <div id="error1"class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><b id="errtext" style="padding-left:15px">Please enter your meal's name</b>
+</div>
+
+ <div id="error2"class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><b id="errtext" style="padding-left:15px">Please enter you location</b>
+</div>
+
+ <div id="error3"class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><b id="errtext" style="padding-left:15px">Please enter why you had this meal</b>
+</div>
+
+ <div id="error4"class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span><b id="errtext" style="padding-left:15px">Please select if your meal was healthy or cheat</b>
+</div>
+
+ <div id="error6"class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><b id="errtext" style="padding-left:15px">Please upload a picture of your meal</b>
+</div>
+
+
+
+
+ <br><br> <br><br> <br>
+
+
+</div>
+
+
+	
+
+
+<!--=========================================================-->
+<!--Bottom Navigation bar (static bottom navbar in Bootstrap)-->
+<!--=========================================================-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style="background-color:#fff; border:none">
+  <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary btn" href="/home" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="./img/home.svg"/></a>
+    <a class="btn btn-primary btn" href="/upload" role="button" style="background-color:#333; border:1; border-color: #878787"><img class="sorters" src="./img/upload.svg"/></a>
+    <a class="btn btn-primary btn" href="/report" role="button" style="background-color:#555; border:1; border-color: #878787"><img class="sorters" src="./img/report.svg"/></a>
+  </div>
+</nav> 
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>-->
+<script type="text/javascript" src="js/bootstrap-clockpicker.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+<script>
+function preventOrAllow(e){
+  console.log("heeeey!");
+ if (!$('#name').val() || 
+      !$('#loc').val()  ||
+      !$('#desc').val() ||
+      !$('#type_img').val()  ||
+      !$('#mood').val() ||
+      !$('#address').val()){ 
+  e.preventDefault();
+  if(!$('#name').val() ){
+    $("#error1").show();
+  }
+  if(!$('#loc').val() ){
+    $("#error2").show();
+  }
+  if(!$('#desc').val() ){
+    $("#error3").show();
+  }
+  if(!$('#type_img').val() ){
+    $("#error4").show();
+  }
+  if(!$('#mood').val() ){
+    $("#error5").show();
+  }
+  if(!$('#address').val() ){
+    $("#error6").show();
+  }
+
+
+  if($('#name').val() ){
+    $("#error1").hide();
+  }
+  if($('#loc').val() ){
+    $("#error2").hide();
+  }
+  if($('#desc').val() ){
+    $("#error3").hide();
+  }
+  if($('#type_img').val() ){
+    $("#error4").hide();
+  }
+  if($('#mood').val() ){
+    $("#error5").hide();
+  }
+  if($('#address').val() ){
+    $("#error6").hide();
+  }
+
+
+  //ADRESSS
+}
+
+
+
+  /*if (!$('#name').val() || 
+      !$('#loc').val()) { 
+    alert("Please complete the form"); 
+}*/
+
+
+}
+</script>
+
+
+<script>
+function funcka(event){
+  console.log("BEFORE");
+      $("#mf").submit();
+      console.log("AFTER");
+    }
+</script>
+
+<script>
+$( "#push" ).hide();
+$( "#error1" ).hide();
+$( "#error2" ).hide();
+$( "#error3" ).hide();
+$( "#error4" ).hide();
+$( "#error5" ).hide();
+$( "#error6" ).hide();
+</script>
+<script>
+function funcky(){
+  $( "#push" ).trigger( "click" );
+}
+</script>
+
+<script>
+  var a = $('#nm').val();
+  var a = a.substring(12);
+  console.log(a);
+  $('#address').val("{{image}}");
+  console.log($('#address').val());
+</script>
+
+<script>
+function myfunc1(e){
+e.preventDefault();
+$('#mood').val('sad-color.svg');
+console.log("sic1c");
+$('#SAD').siblings().removeClass("selected2").end().addClass("selected1");
+}
+</script>
+
+
+<script>
+function myfunc2(e){
+e.preventDefault();
+$('#mood').val('happy-color.svg');
+console.log("sicc2");
+$('#HAPPY').siblings().removeClass("selected1").end().addClass("selected2");
+}
+</script>
+
+
+<script>
+function myfunc3(e){
+  e.preventDefault();
+$('#health').val('redish');
+$('#type_img').val('cheat.svg');
+$('#CHEAT').siblings().removeClass("selected2").end().addClass("selected1");
+
+console.log("sicc");
+}
+</script>
+
+
+<script>
+function myfunc4(e){
+  e.preventDefault();
+$('#health').val('greenish');
+$('#type_img').val('healthy.svg');
+$('#HEALTH').siblings().removeClass("selected1").end().addClass("selected2");
+
+console.log("sicc");
+}
+</script>
+
+
+<script>
+$(document).ready(function() {
+    var date = new Date();
+
+    var minutes = date.getMinutes();
+    var hour = date.getHours();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    var time = hour + ":" + minutes;
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;       
+    $("#date").attr("value", today);
+    $("#time").attr("value", time);
+});
+</script>
+
+
+
+</body>
+</html>
